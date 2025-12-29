@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ChevronRight, Code, Bot, Settings, CheckCircle, TrendingUp, Brain, Users, Shield, Clock, Award, Target, Mail, Phone, MapPin } from 'lucide-react';
+import { ChevronRight, Code, Bot, Settings, CheckCircle, TrendingUp, Brain, Users, Shield, Clock, Award, Target, Mail, Phone, MapPin, Search, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,6 +23,12 @@ export default function Home() {
       title: "Integração de Aplicativos",
       description: "Conectamos ERPs, CRMs, gateways de pagamento, logística e qualquer outro sistema necessário para escalar seu negócio com automação.",
       gradient: "from-blue-600 to-purple-600"
+    },
+    {
+      icon: Search,
+      title: "Consulta de API",
+      description: "Consultas de CPF, CNPJ, CEP e outros dados essenciais para seu negócio. Pacotes premium a partir de 5 centavos por pesquisa.",
+      gradient: "from-green-500 to-teal-500"
     }
   ];
 
@@ -198,7 +203,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <CardContent className="p-8">
@@ -206,7 +211,18 @@ export default function Home() {
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
+                  <a 
+                    href={`https://wa.me/5511982034094?text=Olá! Gostaria de solicitar uma cotação para: ${service.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white">
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Fale com o especialista
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}
